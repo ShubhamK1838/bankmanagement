@@ -220,6 +220,7 @@
             dob: formData.get('dob'),
             education: formData.get('education'),
             occupation: formData.get('occupation'),
+            password: formData.get('password')
         };
 
         const address = {
@@ -237,7 +238,7 @@
         data.append("image", formData.get("profileImage"));
         console.log(data );
 
-        fetch('http://omen:8081/bank/customer', {
+        fetch('/bank/customer', {
             method: 'POST',
             body: data
         }).then(response => {
