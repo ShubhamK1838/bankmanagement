@@ -1,4 +1,4 @@
-package com.bank.entity;
+package com.bank.entity.user;
 
 import com.bank.dto.AddressDTO;
 import com.bank.dto.CustomerDTO;

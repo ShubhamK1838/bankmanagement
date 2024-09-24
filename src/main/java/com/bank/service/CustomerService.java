@@ -1,10 +1,11 @@
 package com.bank.service;
 
 import com.bank.dto.CustomerDTO;
-import com.bank.entity.Convertor;
-import com.bank.entity.Customer;
+import com.bank.entity.user.Convertor;
+import com.bank.entity.user.Customer;
 import com.bank.err.CustomerNotFound;
 import com.bank.repository.CustomerRepository;
+import jakarta.persistence.Entity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +43,12 @@ public class CustomerService {
             throw new CustomerNotFound(id);
         }
         return Convertor.convertCustomerDTO(customer.get());
+    }
+
+
+    public void deleteCustomer(long id ) {
+
+        customerRepository.deleteCustomer(id);
     }
 
     public List<CustomerDTO> getAllCustomers() {

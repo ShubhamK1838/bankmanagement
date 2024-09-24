@@ -1,9 +1,8 @@
-package com.bank.entity;
+package com.bank.entity.user;
 
 import com.bank.enums.Gender;
 import com.bank.enums.MaritalStatus;
 import jakarta.persistence.*;
-import org.springframework.validation.annotation.Validated;
 
 import java.util.Date;
 

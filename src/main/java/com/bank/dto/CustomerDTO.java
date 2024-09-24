@@ -1,9 +1,7 @@
 package com.bank.dto;
 
 
-import com.bank.entity.Address;
 import com.bank.enums.Gender;
-import com.bank.entity.Profile;
 import com.bank.enums.MaritalStatus;
 import org.springframework.web.multipart.MultipartFile;
 

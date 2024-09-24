@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+<%@ page import="java.util.Base64" %>
+<%@ page import="com.bank.dto.CustomerDTO" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+
+     CustomerDTO customer =(CustomerDTO) session.getAttribute("customer");
+     if(customer == null) {
+         request.getRequestDispatcher("/customer/login").forward(request, response);
+     }
+%>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -103,13 +113,9 @@
     </div>
 
     <div class="user-profile">
-        <img src="" alt="User Logo"> <!-- Placeholder for user image -->
-        <span>Username</span>
+        <img src="data:image/jpeg;base64,<%= (customer!=null)?Base64.getEncoder().encodeToString(customer.getProfile().getProfileData().getData()):"" %>" alt="User Image" class="user-image">
+        <span><%=customer!=null?customer.getFirstName():""%></span>
     </div>
 </nav>
-
-<script>
-    // You can add JavaScript here if needed for additional functionality
-</script>
 </body>
 </html>
