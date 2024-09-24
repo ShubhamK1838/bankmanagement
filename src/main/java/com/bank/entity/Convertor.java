@@ -28,6 +28,7 @@ public class Convertor {
         entity.setPanCard(dto.getPanCard());
         entity.setOccupation(dto.getOccupation());
         entity.setId(dto.getId());
+        entity.setPassword(dto.getPassword());
         return entity;
 
     }

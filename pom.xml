@@ -66,6 +66,13 @@
 			<artifactId>mssql-jdbc</artifactId>
 			<version>9.4.0.jre8</version> <!-- Adjust the version as necessary -->
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<version>11.0.0-M26</version>
+		</dependency>
+
 
 	</dependencies>
 

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -147,9 +146,9 @@
         <div class="form-group">
             <label for="state">State:</label>
             <input type="text" id="state" name="state" required>
-        </div>
+        </div>1
         <div class="form-group">
-            <label for="country">Country: India</label>
+            <label >Country: India</label>
         </div>
         <div class="form-group">
             <label for="religion">Religion:</label>
@@ -180,20 +179,18 @@
             <input type="text" id="aadharCard" name="aadharCard" required>
         </div>
 
-        <!-- New password field -->
         <div class="form-group">
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
         </div>
 
-        <!-- New profile picture field -->
         <div class="form-group">
             <label for="profileImage">Profile Picture:</label>
             <input type="file" id="profileImage" name="profileImage" accept="image/*" required>
         </div>
 
         <div class="buttons">
-            <button type="button" class="login">Login</button>
+            <button type="button" onclick="openLogin()" class="login">Login</button>
             <button type="submit" class="signup">Sign Up</button>
         </div>
     </form>
@@ -240,11 +237,15 @@
         data.append("image", formData.get("profileImage"));
         console.log(data );
 
-        fetch('http://omen:8081/bank/user', {
+        fetch('http://omen:8081/bank/customer', {
             method: 'POST',
             body: data
-        }).then(response => response.json())
-            .then(data => console.log('Success:', data))
+        }).then(response => {
+            if(response.ok)
+            {
+                openLogin();
+            }
+        })
             .catch(error => console.error('Error:', error));
 
 
@@ -252,6 +253,12 @@
     });
 
 
+    function openLogin()
+    {
+        var a= document.createElement("a")
+        a.href="/bank/customer/login";
+        a.click();
+    }
 
 
 </script>

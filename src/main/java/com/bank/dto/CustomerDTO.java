@@ -30,6 +30,15 @@ public class CustomerDTO {
     private String occupation;
     private ProfileDTO profile;
     private MultipartFile imageFile;
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public MultipartFile getImageFile() {
         return imageFile;

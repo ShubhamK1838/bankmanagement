@@ -32,7 +32,7 @@ public class Customer {
     private int age;
     @Column(length =12 , nullable = false)
     private String aadharCard;
-    @Column(nullable = false, length = 8)
+    @Column(nullable = false, length = 20)
     private String panCard;
     @Enumerated(EnumType.STRING)
     private Gender gender;
@@ -45,6 +45,15 @@ public class Customer {
     private String occupation;
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Profile profile;
+    private String password ;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public Customer() {}
 
