@@ -81,7 +81,7 @@
     </style>
 </head>
 
-<body>
+<body id="body">
 
 <div class="container">
     <h2>Bank Application - Sign Up</h2>
@@ -121,7 +121,7 @@
         </div>
         <div class="form-group">
             <label for="phoneNumber">Phone Number:</label>
-            <input type="number" minlength=10  maxlength=10 id="phoneNumber" name="phoneNumber" required>
+            <input type="number" minlength=10 maxlength=10 id="phoneNumber" name="phoneNumber" required>
         </div>
         <div class="form-group">
             <label for="maritalStatus">Marital Status:</label>
@@ -146,9 +146,10 @@
         <div class="form-group">
             <label for="state">State:</label>
             <input type="text" id="state" name="state" required>
-        </div>1
+        </div>
+        1
         <div class="form-group">
-            <label >Country: India</label>
+            <label>Country: India</label>
         </div>
         <div class="form-group">
             <label for="religion">Religion:</label>
@@ -172,7 +173,7 @@
         </div>
         <div class="form-group">
             <label for="panCard">PAN Number:</label>
-            <input type="text"maxlength=8 id="panCard" name="panCard" required>
+            <input type="text" maxlength=8 id="panCard" name="panCard" required>
         </div>
         <div class="form-group">
             <label for="aadharCard">Aadhar Number:</label>
@@ -199,6 +200,7 @@
 <script>
     document.getElementById('signupForm').addEventListener('submit', function (event) {
 
+        startLoader("body")
         event.preventDefault();
 
         var formData = new FormData(document.getElementById("signupForm"));
@@ -236,28 +238,29 @@
         data.append("user", JSON.stringify(user));
         data.append("address", JSON.stringify(address));
         data.append("image", formData.get("profileImage"));
-        console.log(data );
+        console.log(data);
 
         fetch('/bank/customer', {
             method: 'POST',
             body: data
         }).then(response => {
-            if(response.ok)
-            {
+            stopLoader()
+            if (response.ok) {
                 openLogin();
             }
         })
-            .catch(error => console.error('Error:', error));
-
+            .catch(error => {
+                console.error('Error:', error)
+                stopLoader();
+            });
 
 
     });
 
 
-    function openLogin()
-    {
-        var a= document.createElement("a")
-        a.href="/bank/customer/login";
+    function openLogin() {
+        var a = document.createElement("a")
+        a.href = "/bank/customer/login";
         a.click();
     }
 

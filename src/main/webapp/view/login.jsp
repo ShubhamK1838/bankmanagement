@@ -70,9 +70,10 @@
             color: white;
         }
     </style>
+    <%@include file="loader.jsp"%>
 </head>
 
-<body>
+<body id="body">
 
 <div class="container">
     <h2>Bank Application - Login</h2>
@@ -106,6 +107,7 @@
         a.click();
     }
     document.getElementById('loginForm').addEventListener('submit', function (event) {
+        startLoader("body")
         event.preventDefault();
         var formData = new FormData(this);
 
@@ -124,6 +126,7 @@
                     return null;
                 }
             }).then((res)=>{
+                stopLoader();
             if(res==null) return ;
             else
             {
